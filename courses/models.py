@@ -26,3 +26,11 @@ class Course(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Module(models.Model):
+    title = models.CharField(max_length=200)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='moduldes')
+
+    def __str__(self):
+        return self.title
