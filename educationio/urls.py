@@ -1,3 +1,4 @@
+from os import name
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -13,6 +14,7 @@ urlpatterns = [
     path('', CourseListView.as_view(), name='course_list'),
     path('students/', include('students.urls', namespace='students')),
     path('__debug__/', include('debug_toolbar.urls')),
+    path('api/', include('courses.api.urls', namespace='api')),
 ]
 
 if settings.DEBUG:
